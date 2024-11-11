@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Praias Pernambucanas - Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <style>
+          .navbar {
+            background-color: #669999;
+          }
+          .main-image, .thumbnail {
+            background-color: #4d8080;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            flex-direction: column;
+          }
+          .thumbnail img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+          }
+          .thumbnail {
+            height: auto;
+            margin-bottom: 20px;
+            text-align: center;
+          }
+          .youtube-link iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+          }
+
+          .map-container {
+            height: 400px;
+            margin-bottom: 30px;
+          }
+          footer {
+            background-color: #669999;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+          }
+          footer a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+          }
+      
+          body.dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+          }
+          body.dark-theme .navbar {
+            background-color: #333;
+          }
+          body.dark-theme .main-image, body.dark-theme .thumbnail {
+            background-color: #2b2b2b;
+          }
+          body.dark-theme footer {
+            background-color: #333;
+          }
+          .navbar .theme-toggle-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .navbar .contact-link {
+            margin-left: auto;
+          }      
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Praias Pernambucanas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item contact-link">
+            <a class="nav-link" href="contato.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Theme Toggle in Center -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="btn btn-outline-light">
+          <i id="theme-icon" class="fas fa-sun"></i> Modo Claro
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Container Principal -->
+      <div class="container-gray">
+        <h1>Praia de Boa Viagem, Recife</h1>
+        <!-- Botões para compartilhamento -->
+        <div class="btn-group mb-4">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mehid.io/praias" class="btn btn-primary" target="_blank">
+                <i class="fab fa-facebook"></i> Compartilhar no Facebook
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://mehid.io/praias&text=Conheça%20a%20praia%20de%20Baía%20dos%20Porcos" class="btn btn-primary" target="_blank">
+                <i class="fab fa-twitter"></i> Compartilhar no Twitter
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Conheça%20a%20praia%20de%20Baía%20dos%20Porcos%20https://mehid.io/praias" class="btn btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Compartilhar no WhatsApp
+            </a>
+            <a href="mailto:?subject=Conheça%20a%20praia%20de%20Baía%20dos%20Porcos&body=Visite%20a%20praia%20de%20Baía%20dos%20Porcos%20https://mehid.io/praias" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Enviar por e-mail
+            </a>
+        </div>
+        
+        <h2>Sobre a Praia</h2>
+        <p>Na capital pernambucana, Recife, é Boa Viagem a grande campeã de visitas. A praia é extensa e tem uma coloração esverdeada, com famosas piscinas naturais na maré baixa. O mar, na grande maioria das vezes, é tranquilo devido à proteção dos arrecifes. Apesar de bonita e com excelente estrutura, fica o lembrete de ter cuidado ao entrar na água, pois a área está sujeita a ataques de tubarões.</p>
+    
+        <!-- Imagem Principal -->
+        <div class="col-md-6">
+          <div class="main-image">
+            <img src="./imagens/5.png" alt="" class="img-fluid">
+          </div>
+        </div>
+
+        <!-- Vídeo -->
+        <h2>Vídeo</h2>
+        <div class="youtube-link mb-4">
+          <iframe src="https://www.youtube.com/embed/CNFYu4-i_1w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <h2>Localização</h2>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.621334199643!2d-34.89715962363285!3d-8.123055474397133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acd3691b92b9c1:0x75b1c745c3ec2a7f!2sPraia%20de%20Boa%20Viagem!5e0!3m2!1spt-BR!2sbr!4v1699747502132!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Check localStorage for theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+      themeToggleButton.textContent = ' Modo Escuro';
+    } else {
+      body.classList.remove('dark-theme');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      themeToggleButton.textContent = ' Modo Claro';
+    }
+
+    // Toggle theme
+    themeToggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      const isDarkMode = body.classList.contains('dark-theme');
+      themeIcon.classList.toggle('fa-sun', !isDarkMode);
+      themeIcon.classList.toggle('fa-moon', isDarkMode);
+      themeToggleButton.textContent = isDarkMode ? ' Modo Claro' : ' Modo Escuro';
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Praias Pernambucanas. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

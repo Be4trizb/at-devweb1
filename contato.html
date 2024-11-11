@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praias Pernambucanas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+      background-color: #669999;
+    }
+    .main-image, .thumbnail {
+      background-color: #4d8080;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      flex-direction: column;
+    }
+    .thumbnail img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .thumbnail {
+      height: auto;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #669999;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ffffff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    body.dark-theme {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-theme .navbar {
+      background-color: #333;
+    }
+    body.dark-theme .main-image, body.dark-theme .thumbnail {
+      background-color: #2b2b2b;
+    }
+    body.dark-theme footer {
+      background-color: #333;
+    }
+
+    .navbar .theme-toggle-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .navbar .contact-link {
+      margin-left: auto;
+    }
+
+    #praiasCarousel .carousel-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .toast.dark-theme {
+      background-color: #333;
+      color: #e0e0e0;
+    }
+
+    .toast.light-theme {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Praias Pernambucanas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item contact-link">
+            <a class="nav-link" href="contato.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Theme Toggle in Center -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="btn btn-outline-light">
+          <i id="theme-icon" class="fas fa-sun"></i> Modo Claro
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulário de Contato -->
+  <div class="container my-4">
+    <div class="contact-form-container">
+      <h2>Contato</h2>
+      <form id="contactForm" action="" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-light">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Mensagem Enviada</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Seu formulário foi enviado com sucesso!
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Check localStorage for theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+      themeToggleButton.textContent = ' Modo Escuro';
+    } else {
+      body.classList.remove('dark-theme');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      themeToggleButton.textContent = ' Modo Claro';
+    }
+
+    // Toggle theme
+    themeToggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      const isDarkMode = body.classList.contains('dark-theme');
+      themeIcon.classList.toggle('fa-sun', !isDarkMode);
+      themeIcon.classList.toggle('fa-moon', isDarkMode);
+      themeToggleButton.textContent = isDarkMode ? ' Modo Claro' : ' Modo Escuro';
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      
+      // Change toast class based on theme
+      const toast = document.getElementById('toast');
+      if (isDarkMode) {
+        toast.classList.remove('light-theme');
+        toast.classList.add('dark-theme');
+      } else {
+        toast.classList.remove('dark-theme');
+        toast.classList.add('light-theme');
+      }
+    });
+
+    // Show toast on form submit
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent form submission
+      const toast = new bootstrap.Toast(document.getElementById('toast'));
+      toast.show(); // Show the toast
+    });
+  </script>
+</body>
+</html>
